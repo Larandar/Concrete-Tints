@@ -8,8 +8,41 @@
             "type": "factoriomod",
             "request": "launch",
             "name": "Factorio Mod Debug",
-            "factorioPath": "c://Users/Larandar/Code/Factorio/bin/x64/factorio.exe",
-            "factorioArgs": ["--disable-audio", "--load-game", "c://Users/Larandar/Code/Factorio/saves/debug.zip"]
+
+            // macOS Path
+            "factorioPath": "/Applications/factorio.app/Contents/MacOS/factorio",
+
+            // Starting arguments
+            "factorioArgs": [
+                // Laptop is not the best
+                "--graphics-quality",
+                "low",
+
+                // I'm doing other things too
+                "--disable-audio",
+
+                // Start a testing scenarion
+                "--load-scenario",
+                "EditorExtensions/testing"
+            ],
+
+            // REgister the hook (why is this not the default?)
+            "hookData": true,
+            "hookLog": true,
+
+            // Make sure we have a clean environment to test
+            "modsPath": "/Users/larandar/Code/Factorio/instances/debug/mods",
+            "manageMod": true,
+            "adjustMods": {
+                // Can't test it else
+                "Concrete-Tints": true,
+                // Debug mod
+                "debugadapter": true,
+                // Editor Extensions is really great for testing
+                "flib": true,
+                "EditorExtensions": true,
+            },
+            "disableExtraMods": true
         }
     ]
 }

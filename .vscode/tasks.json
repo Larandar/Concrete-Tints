@@ -1,0 +1,49 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "factorio",
+			"command": "publish",
+			"modname": "Concrete-Tints",
+			"problemMatcher": [],
+			"label": "Concrete-Tints: Publish"
+		},
+		{
+			"label": "Concrete-Tints: New Version",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Mod: Increase Version",
+				"Mod: Timestamp Last Version"
+			],
+			"problemMatcher": []
+		},
+		{
+			"type": "factorio",
+			"command": "version",
+			"modname": "Concrete-Tints",
+			"problemMatcher": [],
+			"label": "Mod: Increase Version"
+		},
+		{
+			"type": "factorio",
+			"command": "datestamp",
+			"modname": "Concrete-Tints",
+			"problemMatcher": [],
+			"label": "Mod: Timestamp Last Version"
+		},
+		{
+			"type": "factorio",
+			"command": "package",
+			"modname": "Concrete-Tints",
+			"problemMatcher": [],
+			"label": "Mod: Package"
+		},
+		{
+			"type": "factorio",
+			"command": "upload",
+			"modname": "Concrete-Tints",
+			"problemMatcher": [],
+			"label": "Mod: Upload"
+		},
+	]
+}
