@@ -37,7 +37,12 @@ function ConcreteTinter.Tint(concrete_type, color)
     if (tinted_tile == nil) then return end
 
     -- Change tiles to be minable
-    tinted_tile.minable.result = name
+    if (tinted_tile.minable == nil) then
+        tinted_tile.minable = table.deepcopy(
+            data.raw['tile'][concrete_type].minable
+        )
+    end
+    tinted_tile.minable.result = tinted_tile.name
 
     -- Setting up item
     local tinted_item = ConcreteTinter.MakeItem(
