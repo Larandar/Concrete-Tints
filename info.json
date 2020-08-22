@@ -1,13 +1,13 @@
 {
     "name": "Concrete-Tints",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "title": "Concrete Tints",
     "author": "Adrien 'Larandar' DUDOUIT-EXPOSITO",
     "contact": "adrien@dudouit.me",
     "homepage": "https://mods.factorio.com/mod/Concrete-Tints",
-    "factorio_version": "0.18",
+    "factorio_version": "1.0",
     "dependencies": [
-        "base >= 0.18.10"
+        "base >= 1.0.0"
     ],
-    "description": "Create recipes for the new 0.18 concrete color."
+    "description": "Create recipes for the hidden concrete colors."
 }
