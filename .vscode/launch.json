@@ -23,15 +23,15 @@
 
                 // Start a testing scenarion
                 "--load-scenario",
-                "EditorExtensions/testing"
+                "EditorExtensions/testing",
             ],
 
-            // REgister the hook (why is this not the default?)
+            // Register the hook (why is this not the default?)
             "hookData": true,
             "hookLog": true,
 
             // Make sure we have a clean environment to test
-            "modsPath": "/Users/larandar/Code/Factorio/instances/debug/mods",
+            "modsPath": "${workspaceFolder}/../instances/debug/mods",
             "manageMod": true,
             "adjustMods": {
                 // Can't test it else
