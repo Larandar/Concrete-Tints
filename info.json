@@ -1,6 +1,6 @@
 {
     "name": "Concrete-Tints",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "title": "Concrete Tints",
     "author": "Adrien 'Larandar' DUDOUIT-EXPOSITO",
     "contact": "adrien@dudouit.me",
@@ -9,5 +9,5 @@
     "dependencies": [
         "base >= 1.0.0"
     ],
-    "description": "Create recipes for the hidden concrete colors."
+    "description": "Make the colored concrete variants available for crafting."
 }
