@@ -29,6 +29,10 @@ function ConcreteTinter.MakeRecipe(concrete_recipe, tinted_tile)
     recipe.ingredients = {{concrete_recipe.name, 10}}
     recipe.result = tinted_tile.name
 
+    -- Double the time of hazard concrete because:
+    -- > @sorahn: .5 since hazard concrete only paints half of it :wink:
+    recipe.energy_required = 0.5
+
     -- Make is so we can pocket craft tinted concrete
     recipe.category = nil
 

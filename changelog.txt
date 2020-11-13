@@ -4,6 +4,7 @@ Date: ????
   Features:
     - Add option for revert tint on mining tiles
   Changes:
+    - Changed crafting time of tinted concrete to be double of hazard variant
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 2020-10-01
