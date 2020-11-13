@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
-Date: ????
+Date: 2020-11-13
   Features:
     - Add option for revert tint on mining tiles
   Changes:
