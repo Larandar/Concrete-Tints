@@ -29,6 +29,10 @@ function ConcreteTinter.MakeRecipe(concrete_recipe, tinted_tile)
     recipe.ingredients = {{concrete_recipe.name, 10}}
     recipe.result = tinted_tile.name
 
+    -- Double the time of hazard concrete because:
+    -- > @sorahn: .5 since hazard concrete only paints half of it :wink:
+    recipe.energy_required = 0.5
+
     -- Make is so we can pocket craft tinted concrete
     recipe.category = nil
 
@@ -64,6 +68,13 @@ function ConcreteTinter.Tint(concrete_type, color)
     -- Make the recipe available for the punny engineer
     table.insert(data.raw["technology"]["concrete"]["effects"],
                  {type = "unlock-recipe", recipe = tinted_tile.name})
+end
+
+-- Change the mining result of a tile
+function ConcreteTinter.ChangeMiningResult(tile, item)
+    if data.raw["tile"][tile] and data.raw["tile"][tile].minable then
+        data.raw["tile"][tile].minable.result = item
+    end
 end
 
 return ConcreteTinter
