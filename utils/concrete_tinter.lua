@@ -66,4 +66,11 @@ function ConcreteTinter.Tint(concrete_type, color)
                  {type = "unlock-recipe", recipe = tinted_tile.name})
 end
 
+-- Change the mining result of a tile
+function ConcreteTinter.ChangeMiningResult(tile, item)
+    if data.raw["tile"][tile] and data.raw["tile"][tile].minable then
+        data.raw["tile"][tile].minable.result = item
+    end
+end
+
 return ConcreteTinter
