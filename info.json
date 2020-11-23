@@ -1,13 +1,13 @@
 {
     "name": "Concrete-Tints",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "title": "Concrete Tints",
     "author": "Adrien 'Larandar' DUDOUIT-EXPOSITO",
     "contact": "adrien@dudouit.me",
     "homepage": "https://mods.factorio.com/mod/Concrete-Tints",
-    "factorio_version": "1.0",
+    "factorio_version": "1.1",
     "dependencies": [
-        "base >= 1.0.0"
+        "base >= 1.1.0"
     ],
     "description": "Make the colored concrete variants available for crafting."
 }

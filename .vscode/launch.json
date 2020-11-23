@@ -37,10 +37,10 @@
                 // Can't test it else
                 "Concrete-Tints": true,
                 // Debug mod
-                "debugadapter": true,
+                // "debugadapter": true,
                 // Editor Extensions is really great for testing
-                "flib": true,
-                "EditorExtensions": true,
+                // "flib": true,
+                // "EditorExtensions": true,
             },
             "disableExtraMods": true
         }
