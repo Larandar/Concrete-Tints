@@ -1,14 +1,14 @@
 local ConcreteTinter = require('utils.concrete_tinter')
 
-local tile_types = {"refined-concrete"}
+local tile_types = { "refined-concrete" }
 
 -- Revert of style on mining
 local mining_revert_style = settings.startup["concrete-tints-revert-on-mining"]
-                                .value
+    .value
 local mining_revert_tinted = mining_revert_style == "always" or
-                                 mining_revert_style == "tinted-only"
+    mining_revert_style == "tinted-only"
 local mining_revert_hazard = mining_revert_style == "always" or
-                                 mining_revert_style == "hazard-only"
+    mining_revert_style == "hazard-only"
 
 data:extend({
     {
@@ -35,7 +35,7 @@ if mining_revert_hazard then
     ConcreteTinter.ChangeMiningResult("hazard-concrete-left", "concrete")
     ConcreteTinter.ChangeMiningResult("hazard-concrete-right", "concrete")
     ConcreteTinter.ChangeMiningResult("refined-hazard-concrete-left",
-                                      "refined-concrete")
+        "refined-concrete")
     ConcreteTinter.ChangeMiningResult("refined-hazard-concrete-right",
-                                      "refined-concrete")
+        "refined-concrete")
 end

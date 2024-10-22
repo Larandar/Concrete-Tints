@@ -26,7 +26,7 @@ function ConcreteTinter.MakeRecipe(concrete_recipe, tinted_tile)
 
     -- Alter normal recipe
     recipe.name = tinted_tile.name
-    recipe.ingredients = {{concrete_recipe.name, 10}}
+    recipe.ingredients = { { concrete_recipe.name, 10 } }
     recipe.result = tinted_tile.name
 
     -- Double the time of hazard concrete because:
@@ -51,23 +51,23 @@ function ConcreteTinter.Tint(concrete_type, color)
     -- Change tiles to be minable
     if (tinted_tile.minable == nil) then
         tinted_tile.minable = table.deepcopy(
-                                  data.raw['tile'][concrete_type].minable)
+            data.raw['tile'][concrete_type].minable)
     end
     tinted_tile.minable.result = tinted_tile.name
 
     -- Setting up item
     local tinted_item = ConcreteTinter.MakeItem(data.raw["item"][concrete_type],
-                                                tinted_tile)
+        tinted_tile)
     data.raw["item"][tinted_tile.name] = tinted_item
 
     -- Setting up recipe
     local tinted_recipe = ConcreteTinter.MakeRecipe(
-                              data.raw["recipe"][concrete_type], tinted_tile)
+        data.raw["recipe"][concrete_type], tinted_tile)
     data.raw["recipe"][tinted_tile.name] = tinted_recipe
 
     -- Make the recipe available for the punny engineer
     table.insert(data.raw["technology"]["concrete"]["effects"],
-                 {type = "unlock-recipe", recipe = tinted_tile.name})
+        { type = "unlock-recipe", recipe = tinted_tile.name })
 end
 
 -- Change the mining result of a tile
