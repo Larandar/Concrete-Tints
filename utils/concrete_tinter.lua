@@ -7,14 +7,12 @@ function ConcreteTinter.MakeItem(concrete_item, tinted_tile)
     tinted_item.name = tinted_tile.name
     tinted_item.subgroup = "tinted-concrete"
     tinted_item.place_as_tile.result = tinted_tile.name
-    tinted_item.icons = {
-        {
-            icon = concrete_item.icon,
-            icon_mipmaps = concrete_item.icon_mipmaps or 4,
-            icon_size = concrete_item.icon_size or 64,
-            tint = tinted_tile.tint
-        }
-    }
+    tinted_item.icons = { {
+        icon = concrete_item.icon,
+        icon_mipmaps = concrete_item.icon_mipmaps or 4,
+        icon_size = concrete_item.icon_size or 64,
+        tint = tinted_tile.tint
+    } }
     tinted_item.localised_name = tinted_tile.localised_name
 
     return tinted_item
@@ -26,8 +24,16 @@ function ConcreteTinter.MakeRecipe(concrete_recipe, tinted_tile)
 
     -- Alter normal recipe
     recipe.name = tinted_tile.name
-    recipe.ingredients = { { concrete_recipe.name, 10 } }
-    recipe.result = tinted_tile.name
+    recipe.ingredients = { {
+        type = "item",
+        name = concrete_recipe.name,
+        amount = 10
+    } }
+    recipe.results = { {
+        type = "item",
+        name = tinted_tile.name,
+        amount = 10
+    } }
 
     -- Double the time of hazard concrete because:
     -- > @sorahn: .5 since hazard concrete only paints half of it :wink:
@@ -42,39 +48,46 @@ end
 -- Tint a concrete if the tile exist
 function ConcreteTinter.Tint(concrete_type, color)
     -- Get the tinted tile
+    local concrete_item = data.raw['item'][concrete_type]
+    local concrete_tile = data.raw['tile'][concrete_type]
     local tinted_name = string.format("%s-%s", color, concrete_type)
     local tinted_tile = data.raw['tile'][tinted_name]
 
     -- If the tile does not exist just pass
     if (tinted_tile == nil) then return end
 
+    -- Make tiles blueprintable
+    tinted_tile.subgroup = "artificial-tiles"
+    tinted_tile.can_be_part_of_blueprint = true
+
     -- Change tiles to be minable
     if (tinted_tile.minable == nil) then
         tinted_tile.minable = table.deepcopy(
-            data.raw['tile'][concrete_type].minable)
+            concrete_tile.minable
+        )
     end
     tinted_tile.minable.result = tinted_tile.name
 
+
     -- Setting up item
-    local tinted_item = ConcreteTinter.MakeItem(data.raw["item"][concrete_type],
-        tinted_tile)
-    data.raw["item"][tinted_tile.name] = tinted_item
+    local tinted_item = ConcreteTinter.MakeItem(
+        concrete_item,
+        tinted_tile
+    )
+    data.raw["item"][tinted_item.name] = tinted_item
 
     -- Setting up recipe
     local tinted_recipe = ConcreteTinter.MakeRecipe(
-        data.raw["recipe"][concrete_type], tinted_tile)
-    data.raw["recipe"][tinted_tile.name] = tinted_recipe
+        data.raw["recipe"][concrete_type],
+        tinted_tile
+    )
+    data.raw["recipe"][tinted_recipe.name] = tinted_recipe
 
     -- Make the recipe available for the punny engineer
-    table.insert(data.raw["technology"]["concrete"]["effects"],
-        { type = "unlock-recipe", recipe = tinted_tile.name })
-end
-
--- Change the mining result of a tile
-function ConcreteTinter.ChangeMiningResult(tile, item)
-    if data.raw["tile"][tile] and data.raw["tile"][tile].minable then
-        data.raw["tile"][tile].minable.result = item
-    end
+    table.insert(
+        data.raw["technology"]["concrete"]["effects"],
+        { type = "unlock-recipe", recipe = tinted_recipe.name }
+    )
 end
 
 return ConcreteTinter

@@ -3,6 +3,7 @@ Version: 2.0.0
 Date: 2025-05-16
   Changes:
     - Updated to Factorio 2.0.0
+    - Remove "revert tint on mining tiles" option (prevented blueprinting in 2.0)
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.0
 Date: 2020-11-23
