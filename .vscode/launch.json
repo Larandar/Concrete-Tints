@@ -7,10 +7,7 @@
         {
             "type": "factoriomod",
             "request": "launch",
-            "name": "Factorio Mod Debug",
-
-            // macOS Path
-            "factorioPath": "/Applications/factorio.app/Contents/MacOS/factorio",
+            "name": "Factorio: Mod Debug",
 
             // Starting arguments
             "factorioArgs": [
@@ -23,7 +20,7 @@
 
                 // Start a testing scenarion
                 "--load-scenario",
-                "EditorExtensions/testing",
+                "EditorExtensions/testing"
             ],
 
             // Register the hook (why is this not the default?)
@@ -34,13 +31,16 @@
             "modsPath": "${workspaceFolder}/../instances/debug/mods",
             "manageMod": true,
             "adjustMods": {
+                "space-age": true,
+                "elevated-rails": true,
+                "quality": true,
                 // Can't test it else
                 "Concrete-Tints": true,
                 // Debug mod
-                // "debugadapter": true,
+                "debugadapter": true,
                 // Editor Extensions is really great for testing
-                // "flib": true,
-                // "EditorExtensions": true,
+                "flib": true,
+                "EditorExtensions": true
             },
             "disableExtraMods": true
         }
