@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2025-06-13
+  Features:
+    - Removed `hidden` tag from tinted concretes, allowing them to be discoverable by API and GUI.
+---------------------------------------------------------------------------------------------------
 Version: 2.0.0
 Date: 2025-05-16
   Changes:

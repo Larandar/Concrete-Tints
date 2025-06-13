@@ -68,6 +68,8 @@ function ConcreteTinter.Tint(concrete_type, color)
     end
     tinted_tile.minable.result = tinted_tile.name
 
+    -- Now that these tiles are accessible there is no need for them to be hidden
+    tinted_tile.hidden = false
 
     -- Setting up item
     local tinted_item = ConcreteTinter.MakeItem(
